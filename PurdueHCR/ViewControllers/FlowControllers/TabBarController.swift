@@ -32,6 +32,27 @@ class TabBarController: UITabBarController {
             }
         }
         // Do any additional setup after loading the view.
+        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(NewLaunch.newLaunch.isFirstLaunch){
+            createNewLaunchAlert()
+        }
+    }
+    
+    //This will be for showing announcements
+    func createNewLaunchAlert(){
+        let alert = UIAlertController(title: "Are you interested in joining Development Committee?", message: "Development Committee is looking for software developers, marketers, and designers to help with the future of Purdue HCR. If you are interested in helping, checkout our Discord channel!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Take me to the Discord", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            UIApplication.shared.open(URL(string: "https://discord.gg/jptXrYG")!, options: [:], completionHandler: nil)
+            }))
+        alert.addAction(UIAlertAction(title: "No thanks", style: UIAlertActionStyle.default, handler: {(action)in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

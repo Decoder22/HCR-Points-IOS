@@ -21,6 +21,8 @@ class TypeSubmitViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Create Submission"
+        
         typeLabel.text? = type!.pointDescription
         descriptionField.layer.borderColor = UIColor.black.cgColor
         descriptionField.layer.borderWidth = 1

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        print("NEWLAUNCH: ",NewLaunch.newLaunch.isFirstLaunch)
         // Cely handles the creation of the log in/ sign up page. If the user is not logged in, it will create a new page and handle the login
         Cely.setup(with: window!, forModel: User(), requiredProperties: [.id], withOptions: [
             .loginStoryboard: UIStoryboard(name: "LoginStoryboard", bundle: nil)
@@ -100,6 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        //NewLaunch.newLaunch.setWasLaunchedBefore(false)
     }
 
 
